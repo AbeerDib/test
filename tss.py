@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 st.set_page_config(page_icon=" :bar_chart:",page_title="Visualizations",layout="wide")
 css="""
     <style>
