@@ -24,3 +24,29 @@ st.write("")
 st.write("")
 
 #'<span class="custom-text">This text has a custom color.</span>', unsafe_allow_html=True
+df=pd.read_csv("https://raw.githubusercontent.com/AbeerDib/Final/main/WA_Fn-UseC_-Telco-Customer-Churn.csv")
+st.subheader("1-Interactive dataframe ")
+col1,col2=st.columns([1.3,1])
+with col2:
+    rows = st.slider('Select the range of rows you want to see', 
+                    min_value=1,max_value= len(df),value=(1, 5),step=1)
+with col1:
+    selected_columns1 = st.multiselect(
+        "Select Columns:",
+        df.columns,
+        default=["gender","SeniorCitizen","Contract","Churn"]
+    )
+sliced_df = df.iloc[rows[0] :rows[1], :][selected_columns1]
+# Display the sliced DataFrame as a table
+st.write("")
+st.write("")
+st.write("Selected Data:")
+st.dataframe(sliced_df)
+ 
+
+#df.loc[rows]
+#filtered_df=df[(df['Value'] >= rows[0]) & (df['Value'] <= rows[1])]
+#filtered_df
+st.write("")
+st.write("")
+st.write("")
